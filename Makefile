@@ -3,7 +3,7 @@ CREATE := "CREATE TABLE todo(id INTEGER PRIMARY KEY, description TEXT, start DAT
 INSTALL := /usr/bin/install -c
 BINDIR := /usr/local/bin/td
 
-db:
+prepare:
 ifdef SQLITE3
 	@echo Installing...
 	$(shell echo $(CREATE) | sqlite3 $$HOME/.tdl.db)
