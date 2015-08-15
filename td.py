@@ -196,4 +196,4 @@ if __name__ == "__main__":
         res = execute(conn, COMMANDS['list'] % clausule)
         print_format(res)
     elif None:
-        print("provides mimim")
+        print("provide a valid option")
