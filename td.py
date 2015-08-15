@@ -37,6 +37,7 @@ COMMANDS = {
     'delete': """DELETE FROM todo WHERE id=%d;""",
     'list': """SELECT * FROM todo WHERE %s;""",
     'getd': """SELECT description FROM todo WHERE id=%d;""",
+    'update': """UPDATE todo SET %s WHERE id=%d;""",
 }
 
 common = '\033['
@@ -80,6 +81,12 @@ def get_args():
     parser.add_argument("-v", "--version", help="provies current version",
                         action="store_true")
     parser.add_argument("--getd", help="get full description of todo by id",
+                        action="store_true")
+    parser.add_argument("--up-status", help="update status given a id",
+                        action="store_true")
+    parser.add_argument("--up-end", help="update end date given a id",
+                        action="store_true")
+    parser.add_argument("--up-priority", help="update priority given a id",
                         action="store_true")
 
     lists = parser.add_mutually_exclusive_group()
@@ -179,6 +186,21 @@ if __name__ == "__main__":
         if args.id:
             res = execute(conn, COMMANDS['getd'] % args.id)
             print("Description: ", res[0][0])
+
+    if args.up_status:
+        if args.id and args.status:
+            execute(conn, COMMANDS['update'] % ("status='%s'" % args.status,
+                                                args.id))
+
+    if args.up_end:
+        if args.id and args.end:
+            execute(conn, COMMANDS['update'] % ("end='%s'" % args.end,
+                                                args.id))
+
+    if args.up_priority:
+        if args.id and args.priority:
+            execute(conn, COMMANDS['update'] % ("priority='%s'" % args.priority,
+                                                args.id))
 
     if args.list:
         clausule = "id"
