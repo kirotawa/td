@@ -1,4 +1,7 @@
-== INSTALL ==
-as root:
-make install
+### PREPARE
+	- make prepare
+
+### INSTALL
+	- As root:
+		make install
 
