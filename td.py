@@ -53,7 +53,8 @@ COLOR = {
 
 
 def get_args():
-    parser = argparse.ArgumentParser(description="")
+    parser = argparse.ArgumentParser(description="'td' is acronym for TODO a \
+                                     simple way to track todo things/list")
     parser.add_argument("-a", "--add",  help="adds a todo into list",
                         action="store_true")
     parser.add_argument("-d", "--desc", help="sets a description",
