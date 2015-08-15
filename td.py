@@ -36,6 +36,7 @@ COMMANDS = {
     'add': """INSERT INTO todo VALUES (NULL, '%s', '%s', '%s', '%s', '%s');""",
     'delete': """DELETE FROM todo WHERE id=%d;""",
     'list': """SELECT * FROM todo WHERE %s;""",
+    'getd': """SELECT description FROM todo WHERE id=%d;""",
 }
 
 common = '\033['
@@ -77,6 +78,8 @@ def get_args():
     parser.add_argument("--debug", help="provides debug info",
                         action="store_true")
     parser.add_argument("-v", "--version", help="provies current version",
+                        action="store_true")
+    parser.add_argument("--getd", help="get full description of todo by id",
                         action="store_true")
 
     lists = parser.add_mutually_exclusive_group()
@@ -171,6 +174,11 @@ if __name__ == "__main__":
         execute(conn, COMMANDS['delete'] % args.id)
     elif args.delete:
         print("An id is necessary for this action\n")
+
+    if args.getd:
+        if args.id:
+            res = execute(conn, COMMANDS['getd'] % args.id)
+            print("Description: ", res[0][0])
 
     if args.list:
         clausule = "id"
