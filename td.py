@@ -102,7 +102,7 @@ def get_args():
     lists.add_argument("-lS", "--lstatus", help="list by status",
                        action="store_true")
 
-    return parser.parse_args()
+    return parser.parse_args() # args is passed only because unittest
 
 
 def get_conn():
