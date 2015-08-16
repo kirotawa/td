@@ -5,7 +5,7 @@ BINDIR := /usr/local/bin/td
 
 prepare:
 ifdef SQLITE3
-	@echo Installing...
+	@echo Preparing...
 	$(shell echo $(CREATE) | sqlite3 $$HOME/.tdl.db)
 else
 	@echo Need to install sqlite3
