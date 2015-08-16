@@ -51,8 +51,8 @@ COLOR = {
     'end':  '\033[0m',
 }
 
-
-def get_args():
+# @ars: it's onlly used in unittest
+def get_args(args):
     parser = argparse.ArgumentParser(description="'td' is acronym for TODO a \
                                      simple way to track todo things/list")
     parser.add_argument("-a", "--add",  help="adds a todo into list",
@@ -164,7 +164,7 @@ def print_format(data):
 
 if __name__ == "__main__":
     conn = get_conn()
-    args = get_args()
+    args = get_args(None) # None only used to match for unittest
 
     if args.debug:
         print("ARGS: %s" % args)
