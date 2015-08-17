@@ -127,9 +127,8 @@ def print_format(data):
     #     2|lalalalleleljekrjlee ...|12/04/1022|1232323232| started|  medium|
     #    10|laklskjsjsksjsjsllsl ...|12/04/2014|13/08/1900| created|    high|
     if data:
-        print("#########################################################################")
-        print("#  ID  |          DESC          |  START   |   END    | STATUS | PRIORT |")
-        print("#########################################################################")
+        print("   ID  |          DESC          |  START   |   END    | STATUS | PRIORT ")
+        print("------------------------------------------------------------------------")
     else:
         print("0 registers found")
 
@@ -159,7 +158,7 @@ def print_format(data):
             status = status.rjust(8)
 
         # print in table format
-        print("#%s|%s...|%s|%s|%s|%s|"
+        print(" %s|%s...|%s|%s|%s|%s"
               % (id, desc, d[2], d[3], status, priority))
 
 if __name__ == "__main__":
