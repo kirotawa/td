@@ -44,4 +44,4 @@
 	- sudo make install
 
 ### Demo
-	![alt tag](http://i.giphy.com/3o85xDliJe5wk0vCGQ.gif)
+	[![alt tag](http://i.giphy.com/3o85xDliJe5wk0vCGQ.gif)]
