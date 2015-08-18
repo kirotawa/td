@@ -90,6 +90,8 @@ def get_args():
                         action="store_true")
     parser.add_argument("--up-priority", help="update priority given a id",
                         action="store_true")
+    parser.add_argument("--up-description", help="update description given a \
+                        id", action="store_true")
 
     lists = parser.add_mutually_exclusive_group()
     lists.add_argument("--list", help="list everything todo by id",
@@ -202,8 +204,12 @@ if __name__ == "__main__":
 
     if args.up_priority:
         if args.id and args.priority:
-            execute(conn, COMMANDS['update'] % ("priority='%s'" % args.priority,
-                                                args.id))
+            execute(conn, COMMANDS['update'] % ("priority='%s'" %
+                                                args.priority, args.id))
+    if args.up_description:
+        if args.id and args.desc:
+            execute(conn, COMMANDS['update'] % ("description='%s'" %
+                                                args.desc, args.id))
 
     if args.list:
         clausule = "id"
