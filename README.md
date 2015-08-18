@@ -43,6 +43,5 @@
 	- make prepare
 	- sudo make install
 
-### Demo
 
-	![Alt demo](http://i.giphy.com/3o85xDliJe5wk0vCGQ.gif)
+![Alt demo](http://i.giphy.com/3o85xDliJe5wk0vCGQ.gif)
