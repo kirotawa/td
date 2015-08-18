@@ -41,6 +41,7 @@ COMMANDS = {
 }
 
 common = '\033['
+blink = ';5m'
 COLOR = {
     'red': common + '031m',
     'green': common + '032m',
@@ -48,6 +49,7 @@ COLOR = {
     'white': common + '037m',
     'black': common + '030m',
     'blue': common + '034m',
+    'yblink': common + '033' + blink,
     'end':  '\033[0m',
 }
 
@@ -158,7 +160,7 @@ def print_format(data):
         if status == 'finished':
             status = COLOR['green']+status.rjust(8)+COLOR['end']
         if status == 'paused':
-            status = COLOR['yellow']+status.rjust(8)+COLOR['end']
+            status = COLOR['yblink']+status.rjust(8)+COLOR['end']
         if status == 'canceled':
             status = status.rjust(8)
 
