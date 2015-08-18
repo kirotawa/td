@@ -61,6 +61,7 @@ def get_args():
                         action="store", dest="desc")
     parser.add_argument("-S", "--status", type=str, choices=['started',
                                                              'finished',
+                                                             'paused',
                                                              'canceled'
                                                              ],
                         help="sets todo status", action="store",
@@ -154,6 +155,8 @@ def print_format(data):
             status = COLOR['blue']+status.rjust(8)+COLOR['end']
         if status == 'finished':
             status = COLOR['green']+status.rjust(8)+COLOR['end']
+        if status == 'paused':
+            status = COLOR['yellow']+status.rjust(8)+COLOR['end']
         if status == 'canceled':
             status = status.rjust(8)
 
