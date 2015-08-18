@@ -6,7 +6,7 @@
     Usage: td [-h] [-a] [-d DESC] [-S {started,finished,paused,canceled}]
               [-s START] [-e END] [-D] [-i ID] [-p {normal,medium,high}] [--debug]
               [-v] [--getd] [--up-status] [--up-end] [--up-priority]
-              [--list | -ls | -le | -lp | -lS]
+          	  [--up-description] [--list | -ls | -le | -lp | -lS]
 
     'td' is acronym for TODO a simple way to track todo things/list
 
@@ -29,6 +29,7 @@
       --up-status           update status given a id
       --up-end              update end date given a id
       --up-priority         update priority given a id
+  	  --up-description      update description given a id
       --list                list everything todo by id
       -ls, --lstart         list by start date
       -le, --lend           list by end date
@@ -41,4 +42,3 @@
 ### INSTALL
 	- make prepare
 	- sudo make install
-
