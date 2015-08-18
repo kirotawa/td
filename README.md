@@ -42,6 +42,3 @@
 ### INSTALL
 	- make prepare
 	- sudo make install
-
-
-![](http://i.giphy.com/3o85xDliJe5wk0vCGQ.gif)
