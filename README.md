@@ -3,7 +3,7 @@
 	  command line for keep a track of activities/todo things.
 
 ### Usage:
-    Usage: td [-h] [-a] [-d DESC] [-S {started,finished,paused,canceled}]
+    Usage: td [-h] [-a] [-d DESC] [-S {created,started,finished,paused,canceled}]
               [-s START] [-e END] [-D] [-i ID] [-p {normal,medium,high}] [--debug]
               [-v] [--getd] [--up-status] [--up-end] [--up-priority]
           	  [--up-description] [--list | -ls | -le | -lp | -lS]
