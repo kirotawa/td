@@ -61,13 +61,14 @@ def get_args():
                         action="store_true")
     parser.add_argument("-d", "--desc", help="sets a description",
                         action="store", dest="desc")
-    parser.add_argument("-S", "--status", type=str, choices=['started',
+    parser.add_argument("-S", "--status", type=str, choices=['created',
+                                                             'started',
                                                              'finished',
                                                              'paused',
                                                              'canceled'
                                                              ],
                         help="sets todo status", action="store",
-                        dest="status", default="started")
+                        dest="status", default="created")
     parser.add_argument("-s", "--start", help="sets a start date",
                         action="store", dest="start",
                         default=date.strftime(TODAY, "%d/%m/%Y"))
@@ -139,6 +140,7 @@ def print_format(data):
 
     for d in data:
         id = str(d[0])
+        start = d[2]
         desc = d[1]
         status = d[4]
         priority = d[5]
@@ -163,10 +165,14 @@ def print_format(data):
             status = COLOR['yblink']+status.rjust(8)+COLOR['end']
         if status == 'canceled':
             status = status.rjust(8)
+        if status == 'created':
+            status = status.rjust(8)
+            start = ''
+            start = start.rjust(10)
 
         # print in table format
         print(" %s|%s...|%s|%s|%s|%s"
-              % (id, desc, d[2], d[3], status, priority))
+              % (id, desc, start, d[3], status, priority))
 
 if __name__ == "__main__":
     conn = get_conn()
