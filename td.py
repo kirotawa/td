@@ -71,9 +71,9 @@ def get_args():
                         dest="status", default="created")
     parser.add_argument("-s", "--start", help="sets a start date",
                         action="store", dest="start",
-                        default=date.strftime(TODAY, "%d/%m/%Y"))
+                        default="")
     parser.add_argument("-e", "--end", help="sets a end date=d/m/y format",
-                        action="store", dest="end", default="01/12/2042")
+                        action="store", dest="end", default="")
     parser.add_argument("-D", "--delete", help="delete a give todo by id",
                         action="store_true")
     parser.add_argument("-i", "--id", help="pass a id to other options",
@@ -140,14 +140,17 @@ def print_format(data):
 
     for d in data:
         id = str(d[0])
-        start = d[2]
         desc = d[1]
+        start = d[2]
+        end = d[3]
         status = d[4]
         priority = d[5]
 
         # adjusting len of caracters allowed
         desc = desc[:21].ljust(21)
         id = id.rjust(6)
+        end = end.rjust(10)
+        start = start.rjust(10)
 
         # print what matters with colors
         if priority == 'high':
@@ -167,12 +170,11 @@ def print_format(data):
             status = status.rjust(8)
         if status == 'created':
             status = status.rjust(8)
-            start = ''
-            start = start.rjust(10)
 
         # print in table format
         print(" %s|%s...|%s|%s|%s|%s"
-              % (id, desc, start, d[3], status, priority))
+              % (id, desc, start, end, status, priority))
+
 
 if __name__ == "__main__":
     conn = get_conn()
@@ -202,7 +204,11 @@ if __name__ == "__main__":
 
     if args.up_status:
         if args.id and args.status:
-            execute(conn, COMMANDS['update'] % ("status='%s'" % args.status,
+            if args.status == "started" and args.start == "":
+                args.start = date.strftime(TODAY, "%d/%m/%Y")
+
+            execute(conn, COMMANDS['update'] % ("status='%s',start='%s'"
+                                                % (args.status, args.start),
                                                 args.id))
 
     if args.up_end:
