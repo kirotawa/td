@@ -21,6 +21,7 @@
 import os
 import argparse
 from datetime import date
+from subprocess import call
 
 try:
     import sqlite3
@@ -132,6 +133,8 @@ def print_format(data):
     #     1|blalallalalala lalal ...|12/04/2014|12/08/2010|finished|  normal|
     #     2|lalalalleleljekrjlee ...|12/04/1022|1232323232| started|  medium|
     #    10|laklskjsjsksjsjsllsl ...|12/04/2014|13/08/1900| created|    high|
+    # showing a cleanest info
+    call('clear')
     if data:
         print("   ID  |          DESC          |  START   |   END    | STATUS | PRIORT ")
         print("------------------------------------------------------------------------")
