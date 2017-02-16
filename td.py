@@ -88,7 +88,7 @@ def get_args():
                         action="store_true")
     parser.add_argument("--getd", help="get full description of todo by id",
                         action="store_true")
-    parser.add_argument("--up-status", help="update status given a id",
+    parser.add_argument("--up-status", help="update status given a id e.g: td -i 42 --up-status --status paused",
                         action="store_true")
     parser.add_argument("--up-end", help="update end date given a id",
                         action="store_true")
